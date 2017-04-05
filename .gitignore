@@ -1,6 +1,11 @@
 *~
 nohup*
 *.swp
+*.exe
+null
+*.o
+*.mod
+*.log
 
 # temporary files which can be created if a process still has a handle open of a deleted file
 .fuse_hidden*
@@ -10,8 +15,6 @@ nohup*
 
 # Linux trash folder which might appear on any partition or disk
 .Trash-*
-
-*.exe
 
 # Dropbox settings and caches 
 .dropbox 
@@ -29,3 +32,17 @@ Session.vim
 tags 
 
 model/
+wrf/obs/radar/wrf_to_radar/src/SFMT.f90
+wrf/obs/radar/wrf_to_radar/src/common.f90
+wrf/obs/radar/wrf_to_radar/src/common_obs_wrf.f90
+wrf/obs/radar/wrf_to_radar/src/common_radar_tools.f90
+wrf/obs/radar/wrf_to_radar/src/common_wrf.f90
+wrf/obs/radar/wrf_to_radar/src/module_map_utils.f90
+wrf/verification/obsope/src/SFMT.f90
+wrf/verification/obsope/src/common.f90
+wrf/verification/obsope/src/common_mpi.f90
+wrf/verification/obsope/src/common_mpi_wrf.f90
+wrf/verification/obsope/src/common_obs_wrf.f90
+wrf/verification/obsope/src/common_smooth2d.f90
+wrf/verification/obsope/src/common_wrf.f90
+wrf/verification/obsope/src/module_map_utils.f90
