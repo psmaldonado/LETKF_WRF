@@ -16,6 +16,19 @@ else
   echo "======================"
 fi
 
+#Generate interpwrfout.exe
+cd ${BASEDIR}/wrf/interpwrfout
+nohup ./make_interpwrfout_Hintel.sh > ${BASEDIR}/make_exec.log
+grep  "NORMAL END" ${BASEDIR}/make_exec.log > null
+if [ $? -ne 0 ] ; then
+  echo "[Error]: Cannot create output file interpwrfout.exe"
+  echo "======================================================="
+else
+  echo "======================"
+  echo "DONE interpwrfout.exe"
+  echo "======================"
+fi
+
 #Generate letkf.exe
 cd ${BASEDIR}/wrf/letkf
 nohup ./make_letkf_Hintel.sh >> ${BASEDIR}/make_exec.log
@@ -53,6 +66,32 @@ else
   echo "======================"
   echo "DONE wrf_to_radar.exe"
   echo "======================"
+fi
+
+#Generate round_seconds.exe
+cd ${BASEDIR}/wrf/tools/round_seconds
+nohup ./make_round_second_Hintel.sh >> ${BASEDIR}/make_exec.log
+grep  "NORMAL END" ${BASEDIR}/make_exec.log > null
+if [ $? -ne 0 ] ; then
+  echo "[Error]: Cannot create output file round_seconds.exe"
+  echo "======================================================="
+else
+  echo "======================"
+  echo "DONE round_seconds.exe"
+  echo "======================"
+fi
+
+#Generate covariance_matrix.exe
+cd ${BASEDIR}/wrf/verification/covmatrix
+nohup ./make_covmatrix_Hintel.sh >> ${BASEDIR}/make_exec.log
+grep  "NORMAL END" ${BASEDIR}/make_exec.log > null
+if [ $? -ne 0 ] ; then
+  echo "[Error]: Cannot create output file covariance_matrix.exe"
+  echo "========================================================"
+else
+  echo "==========================="
+  echo "DONE covariance_matrix.exe"
+  echo "==========================="
 fi
 
 #Generate obsope.exe
