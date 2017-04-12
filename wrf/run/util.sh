@@ -1566,6 +1566,8 @@ run_letkf () {
    mv ${TMPDIR}/LETKF/gues${MEM}            ${RESULTDIRG}/
    mv ${TMPDIR}/LETKF/anal${MEM}            ${RESULTDIRA}/
    mv ${TMPDIR}/LETKF/NOUT*                 ${RESULTDIRA}/
+   mv ${TMPDIR}/LETKF/gues_obs.dat          ${RESULTDIRG}/
+   mv ${TMPDIR}/LETKF/anal_obs.dat          ${RESULTDIRA}/
 
    if [ $USE_ADAPTIVE_INFLATION -eq 1 ] ; then
      mv $TMPDIR/LETKF/infl_mul.grd          ${RESULTDIRA}/
