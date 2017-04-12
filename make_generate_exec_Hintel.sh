@@ -5,7 +5,7 @@ rm make_exec.log
 
 #Generate pert_metem.exe
 cd ${BASEDIR}/wrf/add_pert
-nohup ./make_pert_metem_Hintel.sh > ${BASEDIR}/make_exec.log
+nohup ./make_pert_metem_Hydra.sh > ${BASEDIR}/make_exec.log
 grep  "NORMAL END" ${BASEDIR}/make_exec.log > null
 if [ $? -ne 0 ] ; then
   echo "[Error]: Cannot create output file pert_metem.exe"
@@ -14,6 +14,19 @@ else
   echo "======================"
   echo "DONE pert_metem.exe"
   echo "======================"
+fi
+
+#Generate time_interp_metem.exe
+cd ${BASEDIR}/wrf/add_pert
+nohup ./make_time_interp_metem_Hintel.sh > ${BASEDIR}/make_exec.log
+grep  "NORMAL END" ${BASEDIR}/make_exec.log > null
+if [ $? -ne 0 ] ; then
+  echo "[Error]: Cannot create output file time_interp_metem.exe"
+  echo "========================================================"
+else
+  echo "=========================="
+  echo "DONE time_interp_metem.exe"
+  echo "=========================="
 fi
 
 #Generate interpwrfout.exe
@@ -31,7 +44,7 @@ fi
 
 #Generate letkf.exe
 cd ${BASEDIR}/wrf/letkf
-nohup ./make_letkf_Hintel.sh >> ${BASEDIR}/make_exec.log
+nohup ./make_letkf_Hydra.sh >> ${BASEDIR}/make_exec.log
 grep  "NORMAL END" ${BASEDIR}/make_exec.log > null
 if [ $? -ne 0 ] ; then
   echo "[Error]: Cannot create output file letkf.exe"
