@@ -5,7 +5,7 @@ LETKFNAMELIST=control                   #Define a letkf namelist template
 MEMBER=60        #Number of ensemble members.
 MAX_DOM=1        #Maximum number of WRF domains.
 HOMEDIR=${HOME}/share/   
-DATADIR=${HOME}/salidas/
+DATADIR=${HOME}/datos/
 ANALYSIS=1       #Identify this job as an analysis job.
 FORECAST=0       #This is not a forecast job.
 INTERPANA=0      #This is used in forecast jobs (but we need to define it here too)
@@ -68,13 +68,13 @@ EXP=ANALYSIS_${DOMAINCONF}_${CONFIGURATION}                # name of experiment
 
 ### initial date setting
 IDATE=20140122173000
-EDATE=20140122200000
+EDATE=20140122173500
 
 #### DATA
 OBSDIR=${HOMEDIR}/DATA/OBS/$OBS/                                                          # Folder where conventional observations are.
 NRADARS=1                                                                                 # Number of available radars.
 RADAROBSDIR=${HOMEDIR}/DATA/OBS/$RADAROBS/                                                # Folder where radar observations are.
-TMPDIR=/home/jruiz/TMP/$EXP/                                                              # Temporal work directory (should be accessible for all computation nodes)
+TMPDIR=/home/paula.maldonado/TMP/$EXP/                                                              # Temporal work directory (should be accessible for all computation nodes)
 OUTPUTDIR=${DATADIR}/EXPERIMENTS/$EXP/                                                    # Where results will be stored.
 GRIBDIR=${HOMEDIR}/DATA/GRIB/FNL/HIRES/ARGENTINA/                                         # Folder where bdy and initial grib files are located.
 GRIBTABLE="Vtable.GFS"                                                                    # Bdy and init data source Vtable name.
