@@ -82,9 +82,6 @@ get_domain
 edit_multiplecycle $TMPDIR/SCRIPTS/H_run_multiple_cycles.sh
 
 #Run multiple cycles with only one QSUB
-
-exit 
-
 sub_and_wait $TMPDIR/SCRIPTS/H_run_multiple_cycles.sh  
 
 
