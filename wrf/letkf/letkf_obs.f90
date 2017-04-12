@@ -695,6 +695,10 @@ SUBROUTINE monit_mean(file,depout)
   REAL(r_size) :: hdxf,dep,rk
   INTEGER :: n,iu,iv,it,iq,ips,irh,iref,ivr
   CHARACTER(9) :: filename='filexxxxx'
+  CHARACTER(12) :: outfile='file_obs.dat'
+  INTEGER :: iunit=55
+
+  REAL(r_sngl) :: wk(8)
   
 
   rmse_u  = 0.0d0
@@ -867,6 +871,25 @@ endif
   WRITE(6,'(8A12)') 'U','V','T','Q','PS','RH','REF','VR'
   WRITE(6,'(8I12)') iu,iv,it,iq,ips,irh,iref,ivr
   WRITE(6,'(A)') '=================================================================================='
+
+  WRITE(outfile(1:4),'(A4)') file
+  OPEN(unit=iunit,FILE=outfile,FORM='unformatted',access='sequential')
+  DO n=1,nobs
+
+       wk(1)=obselm(n)
+       wk(2)=obslon(n)
+       wk(3)=obslat(n)
+       wk(4)=obslev(n)
+       wk(5)=obsdat(n)
+       wk(6)=obserr(n)
+       wk(7)=obstyp(n)
+       wk(8)=depout(n)
+    WRITE(iunit)wk
+
+  ENDDO
+
+  CLOSE(iunit)
+
 
   RETURN
 
