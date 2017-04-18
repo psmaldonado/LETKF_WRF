@@ -18,7 +18,7 @@ fi
 
 #Generate time_interp_metem.exe
 cd ${BASEDIR}/wrf/add_pert
-nohup ./make_time_interp_metem_Hintel.sh > ${BASEDIR}/make_exec.log
+nohup ./make_time_interp_metem_Hydra.sh > ${BASEDIR}/make_exec.log
 grep  "NORMAL END" ${BASEDIR}/make_exec.log > null
 if [ $? -ne 0 ] ; then
   echo "[Error]: Cannot create output file time_interp_metem.exe"
